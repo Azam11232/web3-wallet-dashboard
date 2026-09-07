@@ -1,47 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Web3 Wallet Dashboard</title>
-    <link rel="stylesheet" href="styles.css" />
-    <!-- Ethers.js v6 (UMD build for the browser) -->
-    <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.5/dist/ethers.umd.min.js"></script>
-  </head>
-  <body>
-    <main class="page">
-      <header class="hero">
-        <p class="eyebrow">Web3</p>
-        <h1>Wallet Dashboard</h1>
-        <p class="subtitle">Connect MetaMask to view your address, balances, and network.</p>
-        <button id="connect-btn" type="button">Connect Wallet</button>
-      </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-      <p id="status" class="status" role="status" aria-live="polite"></p>
+  <title>Web3 Wallet Balance Checker</title>
 
-      <section class="cards" aria-label="Wallet details">
-        <article class="card">
-          <h2>Address</h2>
-          <p id="address" class="value muted">—</p>
-        </article>
+  <link rel="stylesheet" href="styles.css" />
 
-        <article class="card">
-          <h2>Native Balance</h2>
-          <p id="native-balance" class="value muted">—</p>
-        </article>
+  <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.4/dist/ethers.umd.min.js"></script>
+</head>
 
-        <article class="card">
-          <h2>USDC Balance</h2>
-          <p id="usdc-balance" class="value muted">—</p>
-        </article>
+<body>
 
-        <article class="card">
-          <h2>Network</h2>
-          <p id="network-name" class="value muted">—</p>
-        </article>
+  <main class="container">
+
+    <section class="dashboard">
+
+      <div class="header">
+        <div class="logo">◈</div>
+
+        <h1>Web3 Wallet Balance Checker</h1>
+
+        <p>
+          Paste any public Ethereum wallet address to check its
+          blockchain balance.
+        </p>
+      </div>
+
+
+      <div class="wallet-card">
+
+        <label for="walletAddress">
+          Wallet Address
+        </label>
+
+        <input
+          type="text"
+          id="walletAddress"
+          placeholder="0x1234567890abcdef1234567890abcdef12345678"
+          autocomplete="off"
+        />
+
+        <button id="checkBalanceBtn">
+          Check Balance
+        </button>
+
+        <p id="errorMessage" class="error-message"></p>
+
+      </div>
+
+
+      <div id="loading" class="loading hidden">
+
+        <div class="spinner"></div>
+
+        <p>Fetching blockchain data...</p>
+
+      </div>
+
+
+      <section id="results" class="results hidden">
+
+        <div class="result-header">
+
+          <h2>Wallet Information</h2>
+
+          <span class="network-badge">
+            Ethereum Mainnet
+          </span>
+
+        </div>
+
+
+        <div class="address-box">
+
+          <span class="label">
+            Wallet Address
+          </span>
+
+          <p id="fullAddress"></p>
+
+        </div>
+
+
+        <div class="balance-grid">
+
+
+          <div class="balance-card">
+
+            <div class="token-info">
+
+              <div class="token-icon eth-icon">
+                Ξ
+              </div>
+
+              <div>
+
+                <span class="token-name">
+                  Ethereum
+                </span>
+
+                <span class="token-symbol">
+                  ETH
+                </span>
+
+              </div>
+
+            </div>
+
+            <h3 id="ethBalance">
+              0 ETH
+            </h3>
+
+          </div>
+
+
+          <div class="balance-card">
+
+            <div class="token-info">
+
+              <div class="token-icon usdc-icon">
+                $
+              </div>
+
+              <div>
+
+                <span class="token-name">
+                  USD Coin
+                </span>
+
+                <span class="token-symbol">
+                  USDC
+                </span>
+
+              </div>
+
+            </div>
+
+            <h3 id="usdcBalance">
+              0 USDC
+            </h3>
+
+          </div>
+
+
+        </div>
+
+
+        <div class="network-info">
+
+          <span>Network</span>
+
+          <strong>
+            Ethereum Mainnet
+          </strong>
+
+        </div>
+
+
       </section>
-    </main>
 
-    <script src="app.js"></script>
-  </body>
+
+      <div class="security-notice">
+
+        <span>🔒</span>
+
+        <p>
+          Read-only balance checker. Never enter your private key or seed phrase.
+        </p>
+
+      </div>
+
+
+    </section>
+
+  </main>
+
+
+  <script src="app.js"></script>
+
+</body>
 </html>
