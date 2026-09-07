@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web3 Wallet Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Ethers.js v6 (UMD build for the browser) -->
+    <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.5/dist/ethers.umd.min.js"></script>
+  </head>
+  <body>
+    <main class="page">
+      <header class="hero">
+        <p class="eyebrow">Web3</p>
+        <h1>Wallet Dashboard</h1>
+        <p class="subtitle">Connect MetaMask to view your address, balances, and network.</p>
+        <button id="connect-btn" type="button">Connect Wallet</button>
+      </header>
+
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+
+      <section class="cards" aria-label="Wallet details">
+        <article class="card">
+          <h2>Address</h2>
+          <p id="address" class="value muted">—</p>
+        </article>
+
+        <article class="card">
+          <h2>Native Balance</h2>
+          <p id="native-balance" class="value muted">—</p>
+        </article>
+
+        <article class="card">
+          <h2>USDC Balance</h2>
+          <p id="usdc-balance" class="value muted">—</p>
+        </article>
+
+        <article class="card">
+          <h2>Network</h2>
+          <p id="network-name" class="value muted">—</p>
+        </article>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
