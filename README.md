@@ -1,12 +1,20 @@
 # Web3 Wallet Dashboard
 
 A minimal dashboard that connects MetaMask and shows real-time
-wallet balance on EVM chains.
+wallet balances on EVM chains.
 
-## Status
-🚧 Building in progress — check back soon!
+## 🔗 Live Demo
+[web3-wallet-dashboard.vercel.app](https://web3-wallet-dashboard-beta.vercel.app/)
 
-## Planned Features
-- MetaMask connection
-- ETH & USDC balance display
-- Network detection
+## Features
+- 🔗 One-click MetaMask connection
+- 💰 Native token + USDC balance display
+- 🌐 Network detection
+- 🔒 Read-only — no private keys, no signatures
+
+## Tech Stack
+- Vanilla JavaScript, Ethers.js v6, HTML/CSS
+
+## What I Learned
+- How `eth_getBalance` and ERC-20 `balanceOf` work at the RPC level
+- Handling provider errors and wallet rejection cases
